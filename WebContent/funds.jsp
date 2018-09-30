@@ -88,24 +88,30 @@ HttpSession session2=request.getSession(false);
               <i class="mdi mdi-home menu-icon"></i>
             </a>
           </li>
-<li class="nav-item active">
+<li class="nav-item">
 	 <a class="nav-link" href="shortage">
               <span class="menu-title">Funds</span>
                <i class="mdi mdi-cash-usd menu-icon"></i> 
             </a>
 		
 	</li>
-	
-	<li class="nav-item"> 
-		<a class="nav-link" href="shortage1">
+	 <li class="nav-item"> 
+            <a class="nav-link" href="shortage1">
               <span class="menu-title">Securities</span>
-              <i class="mdi mdi-file-document menu-icon"></i>
+               <i class="mdi mdi-file-document menu-icon"></i>
             </a>
-	</li>
+          </li>
+	
 	<li class="nav-item">
 		<a class="nav-link" href="adminchart">
               <span class="menu-title">Charts</span>
               <i class="mdi mdi-chart-bar menu-icon"></i>
+            </a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="about.jsp">
+              <span class="menu-title">About Us</span>
+             <i class="mdi mdi-account-multiple menu-icon"></i>
             </a>
 	</li>
 	 </ul>

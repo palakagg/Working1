@@ -261,7 +261,7 @@
                     
                       <% } %>
                     <tr>
-<td class="input"><input class="addNew" type="text" id="new_trade"></td>
+ <td class="input"><!--  <input class="addNew" type="text" id="new_trade">--></td> 
 <td class="input"><select class="addNew" id="new_security">
 		<option value="Facebook">Facebook</option>
 		<option value="Apple">Apple</option>
@@ -269,8 +269,8 @@
     	<option value="Walmart">Walmart</option>
     	<option value="LinkedIn">LinkedIn</option>
     	</select></td>
-<td class="input"><input class="addNew" type="text" id="new_quantity" value="Integer only"></td>
-<td class="input"><input class="addNew" type="text" id="new_price" value="Decimal only"></td>
+<td class="input"><input class="addNew" type="number" id="new_quantity" value="Integer only" min="1000" ></td>
+<td class="input"><input class="addNew" type="number" id="new_price" value="Decimal only"></td>
 <td class="input"><select class="addNew" id="new_buyer">
 		<option value="Citi">Citi</option>
     	<option value="JPMorgan">JPMorgan</option>
@@ -354,21 +354,19 @@
   <script type="text/javascript">
 function edit_row(no)
 {
-	//alert(no);
+var trade=document.getElementById("tradeid_row"+no);
+	
 	//var no = x.parentNode.parentNode.rowIndex;
  document.getElementById("edit_button"+no).style.display="none";
  var x =document.getElementById("save_button"+no).style.display="block";
  
- var trade=document.getElementById("tradeid_row"+no);
- //alert(trade);
+ 
  var security=document.getElementById("security_row"+no);
  var quantity=document.getElementById("quantity_row"+no);
  var price=document.getElementById("price_row"+no);
  var buyer=document.getElementById("buyer_row"+no);
  var seller=document.getElementById("seller_row"+no);
-
  var trade_data=trade.innerHTML;
-
  var security_data=security.innerHTML;
  var quantity_data=quantity.innerHTML;
  var price_data=price.innerHTML;
@@ -377,26 +375,54 @@ function edit_row(no)
  
  
  security.innerHTML="<input type='text' id='security_text"+no+"' value='"+security_data+"' style='width: 100%;'>";
- quantity.innerHTML="<input type='text' id='quantity_text"+no+"' value='"+quantity_data+"' style='width: 100%;'>";
- price.innerHTML="<input type='text' id='price_text"+no+"' value='"+price_data+"' style='width: 100%;'>";
+ quantity.innerHTML="<input type='number' id='quantity_text"+no+"' min='1000' value='"+quantity_data+"' style='width: 100%;'>";
+ price.innerHTML="<input type='number' id='price_text"+no+"' value='"+price_data+"' style='width: 100%;'>";
  buyer.innerHTML="<input type='text' id='buyer_text"+no+"' value='"+buyer_data+"' style='width: 100%;'>";
  seller.innerHTML="<input type='text' id='seller_text"+no+"' value='"+seller_data+"' style='width: 100%;'>";
 }
 function save_row(no)
 {
-	var trade_val=document.getElementById("trade_text"+no).value;
+	var trade=document.getElementById("tradeid_row"+no);
+	 var trade_val=trade.innerHTML;
 	var trade_val=trade_val.trim();
+	
 	 var security_val=document.getElementById("security_text"+no).value;
 	 var security_val=security_val.trim();
+	 
+	 if(security_val=="Apple")
+		 security_val="S01";
+	 else if(security_val=="GE")
+		 security_val="S02";
+	 else if(security_val=="Walmart")
+		 security_val="S03";
+	 else if(security_val=="LinkedIn")
+		 security_val="S04";
+	 else if(security_val=="Facebook")
+		 security_val="S05";
 	 var quantity_val=document.getElementById("quantity_text"+no).value;
 	 var quantity_val=quantity_val.trim();
 	 var price_val=document.getElementById("price_text"+no).value;
 	 var price_val=price_val.trim();
 	 var buyer_val=document.getElementById("buyer_text"+no).value;
 	 var buyer_val=buyer_val.trim();
-	 
+	 if( buyer_val=="Citi")
+		 buyer_val="C01";
+	 else if( buyer_val=="GoldmanSachs")
+		 buyer_val="C02";
+	 else if( buyer_val=="DeutscheBank")
+		 buyer_val="C03";
+	 else if( buyer_val=="JPMorgan")
+		 buyer_val="C04";
 	 var seller_val=document.getElementById("seller_text"+no).value;
 	 var seller_val=seller_val.trim();
+	 if(seller_val=="Citi")
+		 seller_val="C01";
+	 else if(seller_val=="GoldmanSachs")
+		 seller_val="C02";
+	 else if(seller_val=="DeutscheBank")
+		 seller_val="C03";
+	 else if(seller_val=="JPMorgan")
+		 seller_val="C04";
 	 var base="updatetransaction?transId=";
 	 var url =base.concat(trade_val,"&security=",security_val,"&quantity=",quantity_val,"&price=",price_val,"&buyclearingmember=",buyer_val,"&sellclearingmember=",seller_val);
 	 window.location.assign(url);
@@ -404,15 +430,26 @@ function save_row(no)
 }
 function add_row()
 {
-
- var new_trade=document.getElementById("new_trade").value;
- var new_trade = new_trade.trim();
+// var new_trade=document.getElementById("new_trade").value;
+ //var new_trade = new_trade.trim();
  
- var new_security=document.getElementById("new_security").value;
+var new_security=document.getElementById("new_security").value;
+ 
  var new_security = new_security.trim();
+ if(new_security=="Apple")
+	 new_security="S01";
+ else if(new_security=="GE")
+	 new_security="S02";
+ else if(new_security=="Walmart")
+	 new_security="S03";
+ else if(new_security=="LinkedIn")
+	 new_security="S04";
+ else if(new_security=="Facebook")
+	 new_security="S05";
+ 
  var new_quantity=document.getElementById("new_quantity").value;
  var new_quantity = new_quantity.trim();
- var quantity = parseInt(new_quantity, 10)
+/* var quantity = parseInt(new_quantity, 10)
  alert(typeof quantity);
  if(typeof quantity=='string'){
 	 alert("enter integer value for quantity");
@@ -421,30 +458,44 @@ function add_row()
 		 var url =base.concat(str);
 		   window.location.assign(url);
  
- }else{
+ }else{*/
  var new_price=document.getElementById("new_price").value;
  
  var new_price = new_price.trim();
  
- if(typeof new_price=='string'){
+ /*if(typeof new_price=='string'){
 	 alert("enter decimal value for price");
 	 var base="check1?none=";
 		var str="none";
 		 var url =base.concat(str);
 		   window.location.assign(url);
-	 }else{
+	 }else{*/
  var new_buyer=document.getElementById("new_buyer").value;
  var new_buyer = new_buyer.trim();
+ if(new_buyer=="Citi")
+	 new_buyer="C01";
+ else if(new_buyer=="GoldmanSachs")
+		 new_buyer="C02";
+ else if(new_buyer=="DeutscheBank")
+	 new_buyer="C03";
+ else if(new_buyer=="JPMorgan")
+	 new_buyer="C04";
  var new_seller=document.getElementById("new_seller").value;
  var new_seller = new_seller.trim();
- 
+ if(new_seller=="Citi")
+	 new_seller="C01";
+ else if(new_seller=="GoldmanSachs")
+		 new_seller="C02";
+ else if(new_seller=="DeutscheBank")
+	 new_seller="C03";
+ else if(new_seller=="JPMorgan")
+	 new_seller="C04";
  var base="addtransaction?transId=";
- var url =base.concat(new_trade,"&new_security=",new_security,"&new_quantity=",new_quantity,"&new_price=",new_price,"&new_buyer=",new_buyer,"&new_seller=",new_seller);
-window.location.assign(url);}}
+ var url =base.concat("1","&new_security=",new_security,"&new_quantity=",new_quantity,"&new_price=",new_price,"&new_buyer=",new_buyer,"&new_seller=",new_seller);
+window.location.assign(url);//}}
  // var table=document.getElementById("table_format");
 // var table_len=(table.rows.length)-1;
 // var row = table.insertRow(table_len).outerHTML="<tr id='row"+table_len+"'><td id='trade_row"+table_len+"'>"+new_trade+"</td><td id='security_row"+table_len+"'>"+new_security+"</td><td id='quantity_row"+table_len+"'>"+new_quantity+"</td><td id='price_row"+table_len+"'>"+new_price+"</td><td id='buyer_row"+table_len+"'>"+new_buyer+"</td><td id='seller"+table_len+"'>"+new_seller+"</td><td><input type='button' id='edit_button"+table_len+"' value='Edit' class='edit' onclick='edit_row("+table_len+")'> <input type='button' id='save_button"+table_len+"' value='Save' class='save' onclick='save_row("+table_len+")'> <input type='button' value='Delete' class='delete' onclick='delete_row("+table_len+")'></td></tr>";
-
 }
 function pop() {
 	 var name=prompt("Please enter no of trades",20);

@@ -106,6 +106,12 @@ HttpSession session2=request.getSession(false);
               <i class="mdi mdi-chart-bar menu-icon"></i>
             </a>
 	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="about.jsp">
+              <span class="menu-title">About Us</span>
+              <i class="mdi mdi-account-multiple menu-icon"></i>
+            </a>
+	</li>
 	 </ul>
        </div>
      <div id="nav1" class="nav1">

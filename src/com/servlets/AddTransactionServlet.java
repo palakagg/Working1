@@ -42,6 +42,7 @@ public class AddTransactionServlet extends HttpServlet {
 		String buyer = request.getParameter("new_buyer");
 		String seller = request.getParameter("new_seller");
 		Transaction transaction = new Transaction(transId, buyer, security, seller, quantity, price);
+		System.out.println(transaction.getTransId());
 		TransactionOperations dao= new TransactionOperationsImpl();
 		dao.addTransaction(transaction);
 		List<Transaction> list = dao.findAll();

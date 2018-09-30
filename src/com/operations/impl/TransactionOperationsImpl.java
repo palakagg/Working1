@@ -415,14 +415,23 @@ public class TransactionOperationsImpl implements TransactionOperations {
 	@Override
 	public void addTransaction(Transaction transaction) {
 		// TODO Auto-generated method stub
-	
+		String LAST ="select top 1 transactionId from Transactions order by transactionId desc";
+		
+		int transactionId=0;
 		String ADDTRANSACTION = "Insert into TRANSACTIONS values(?,?,?,?,?,?)";
 
 		try {
 			Connection con = MyConnection.openConnection();
-
+			PreparedStatement ps1 = con.prepareStatement(LAST);
+			ResultSet set = ps1.executeQuery();
+			while(set.next())
+			{
+				transactionId= set.getInt(1);
+			}
+			transactionId=transactionId+1;
+			System.out.println(transactionId);
 			PreparedStatement ps = con.prepareStatement(ADDTRANSACTION);
-			ps.setInt(1, transaction.getTransId());
+			ps.setInt(1, transactionId);
 			ps.setString(3, transaction.getSecurityId());
 			ps.setInt(5, transaction.getQuantity());
 			ps.setFloat(6, transaction.getPrice());
