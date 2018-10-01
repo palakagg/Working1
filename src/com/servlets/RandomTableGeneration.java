@@ -75,7 +75,9 @@ public class RandomTableGeneration extends HttpServlet {
 			   String c1 = cop.getCompanyId(buyclmember);
 			   String c2 = cop.getCompanyId(sellclmember);
 			   SecurityOperations sop = new SecurityOperationsImpl();
+			 //  System.out.println(ransec);
 			   String s1 = sop.getSecurityId(ransec);
+			   System.out.println(s1);
 			   Transaction transaction= new com.beans.Transaction(i,c1,s1, c2, ranquantity, (float) ranprice);
 				
 				

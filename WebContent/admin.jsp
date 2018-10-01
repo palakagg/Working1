@@ -87,7 +87,7 @@
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
           </li>
-          <li class="nav-item"> 
+          <li class="nav-item" style="background: #242424"> 
             <a class="nav-link" href="check1">
               <span class="menu-title">Dashboard</span>
               <i class="mdi mdi-home menu-icon"></i>
@@ -148,7 +148,7 @@
             <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body" >
-                  <h5>End of Day Trade List</h5>
+                  <h4>End of Day Trade List</h4>
                   <%
 					List<Transaction> list1 = (List<Transaction>)request.getAttribute("transactions");
             
@@ -164,11 +164,11 @@
                           SECURITY NAME
                         </th>
                         <th class="tableHead">
-                          QUANTITY<a class="edit" href="filterquan"><i class="mdi mdi-filter"></i></a>
+                          QUANTITY<a class="edit" href="filterquan"><i class="mdi mdi-sort-ascending"></i></i></a>
                           
                         </th>
                         <th class="tableHead">
-                          PRICE <a class="edit" href="filterprice"><i class="mdi mdi-filter"></i></a>
+                          PRICE <a class="edit" href="filterprice"><i class="mdi mdi-sort-ascending"></i></i></a>
                         </th>
                          <th class="tableHead">
                           BUYER CLEARING MEMBER
@@ -260,7 +260,7 @@
                       </td></tr>
                     
                       <% } %>
-                    <tr>
+                    <tr style="background: rgba(70,70,100, 0.9);">
  <td class="input"><!--  <input class="addNew" type="text" id="new_trade">--></td> 
 <td class="input"><select class="addNew" id="new_security">
 		<option value="Facebook">Facebook</option>
@@ -282,17 +282,23 @@
     	<option value="JPMorgan">JPMorgan</option>
     	<option value="DeutscheBank">DeutscheBank</option>
     	<option value="GoldmanSach">GoldmanSachs</option></select></td>
-<td class="buttons"><button class="add" onclick="add_row();" value="Add Row"><i class="mdi mdi-plus-circle"></i></button></td>
+<td class="buttons"><button style="margin-top:18px;"class="add" onclick="add_row();" value="Add Row"><i class="mdi mdi-plus-circle"></i></button></td>
 </tr>
                     </tbody>
                   </table>
              <br>
              <br>
              
+             
+             <div class="clicks">
+             
              <button id="button1" value="Random" class="random" onclick="pop()">Generate Random Data</button>
   
                <button id="button2" value="Default" class="default" onclick="defo()">Get Default Data</button>
             
+           
+            
+            </div>
            
             
            
@@ -336,7 +342,7 @@
 
   <!-- plugins:js -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
- <!--  --> <script src="js/scripts.js"></script> -->
+ <!--  --> <script src="js/scripts.js"></script>
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <script src="vendors/js/vendor.bundle.addons.js"></script>
   <script src="data.js"></script>
@@ -348,6 +354,7 @@
   <script src="js/misc.js"></script>
   
   <!-- endinject -->
+ 
   <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
   <!-- End custom js for this page-->
@@ -360,7 +367,7 @@ var trade=document.getElementById("tradeid_row"+no);
  document.getElementById("edit_button"+no).style.display="none";
  var x =document.getElementById("save_button"+no).style.display="block";
  
- 
+
  var security=document.getElementById("security_row"+no);
  var quantity=document.getElementById("quantity_row"+no);
  var price=document.getElementById("price_row"+no);
@@ -373,20 +380,22 @@ var trade=document.getElementById("tradeid_row"+no);
  var buyer_data=buyer.innerHTML;
  var seller_data=seller.innerHTML;
  
- 
- security.innerHTML="<input type='text' id='security_text"+no+"' value='"+security_data+"' style='width: 100%;'>";
- quantity.innerHTML="<input type='number' id='quantity_text"+no+"' min='1000' value='"+quantity_data+"' style='width: 100%;'>";
- price.innerHTML="<input type='number' id='price_text"+no+"' value='"+price_data+"' style='width: 100%;'>";
- buyer.innerHTML="<input type='text' id='buyer_text"+no+"' value='"+buyer_data+"' style='width: 100%;'>";
- seller.innerHTML="<input type='text' id='seller_text"+no+"' value='"+seller_data+"' style='width: 100%;'>";
+/*  trade.css("padding", "0"); */
+ security.innerHTML="<select style='width: auto;'class='addNew' id='security_text"+no+"'><option value='Facebook'>Facebook</option><option value='Apple'>Apple</option><option value='GE'>GE</option><option value='Walmart'>Walmart</option><option value='LinkedIn'>LinkedIn</option></select>"
+ quantity.innerHTML="<input type='number' id='quantity_text"+no+"' min='1000' value='"+quantity_data+"' style='width: auto;'>";
+ price.innerHTML="<input type='number' id='price_text"+no+"' value='"+price_data+"' style='width: auto;'>";
+ buyer.innerHTML="<select class='addNew' id='buyer_text"+no+"'><option value='Citi'>Citi</option><option value='JPMorgan'>JPMorgan</option><option value='DeutscheBank'>DeutscheBank</option><option value='GoldmanSachs'>GoldmanSachs</option></select>";
+ seller.innerHTML="<select class='addNew' id='seller_text"+no+"'><option value='Citi'>Citi</option><option value='JPMorgan'>JPMorgan</option><option value='DeutscheBank'>DeutscheBank</option><option value='GoldmanSachs'>GoldmanSachs</option></select>";
 }
 function save_row(no)
 {
+	
 	var trade=document.getElementById("tradeid_row"+no);
 	 var trade_val=trade.innerHTML;
 	var trade_val=trade_val.trim();
 	
 	 var security_val=document.getElementById("security_text"+no).value;
+	 
 	 var security_val=security_val.trim();
 	 
 	 if(security_val=="Apple")
@@ -400,6 +409,7 @@ function save_row(no)
 	 else if(security_val=="Facebook")
 		 security_val="S05";
 	 var quantity_val=document.getElementById("quantity_text"+no).value;
+	// alert("lasya");
 	 var quantity_val=quantity_val.trim();
 	 var price_val=document.getElementById("price_text"+no).value;
 	 var price_val=price_val.trim();

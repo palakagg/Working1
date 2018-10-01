@@ -16,7 +16,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Clear Hai?!</title>
+  <title>Charts | Libra Appliaction</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
@@ -92,17 +92,18 @@
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
           </li>
-          <li class="nav-item"> 
+           <li class="nav-item"> 
             <a class="nav-link" href="show_company">
               <span class="menu-title">Dashboard</span>
               <i class="mdi mdi-home menu-icon"></i>
             </a>
           </li>
           <li class="nav-item">
-           <a class="nav-link" href="CompanyShortage">
+            <a class="nav-link" href="CompanyShortage">
               <span class="menu-title">Shortages</span>
+              <i class="mdi mdi-arrow-bottom-right menu-icon"></i>
              <!-- <i class="menu-arrow"></i> -->
-             
+              
             </a>
            <!-- <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
@@ -114,13 +115,14 @@
 		  <li class="nav-item"> 
             <a class="nav-link" href="borrow" >
               <span class="menu-title">Securities</span>
-             
+            <i class="mdi mdi-file-document menu-icon"></i>
             </a>
           </li>
-          <li class="nav-item"> 
+          <li class="nav-item" style="background: #242424;"> 
             <a class="nav-link" href="chart" >
               <span class="menu-title">Charts</span>
-              
+              <i class="mdi mdi-chart-bar menu-icon"></i>
+             
             </a>
           </li>
         <!--  <li class="nav-item">
@@ -147,42 +149,12 @@
               <i class="mdi mdi-table-large menu-icon"></i>
             </a>
           </li> -->
-          <!-- <li class="nav-item"> -->
-            <!-- <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> -->
-              <!-- <span class="menu-title">Sample Pages</span> -->
-              <!-- <i class="menu-arrow"></i> -->
-              <!-- <i class="mdi mdi-medical-bag menu-icon"></i> -->
-            <!-- </a> -->
-            <!-- <div class="collapse" id="general-pages"> -->
-              <!-- <ul class="nav flex-column sub-menu"> -->
-                <!-- <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li> -->
-                <!-- <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li> -->
-                <!-- <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li> -->
-                <!-- <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li> -->
-                <!-- <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li> -->
-              <!-- </ul> -->
-              <!-- </div> -->
+          
           </li>
-          <!-- <li class="nav-item sidebar-actions"> -->
-            <!-- <span class="nav-link"> -->
-              <!-- <div class="border-bottom"> -->
-                <!-- <h6 class="font-weight-normal mb-3">Projects</h6>                 -->
-              <!-- </div> -->
-              <!-- <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button> -->
-              <!-- <div class="mt-4"> -->
-                <!-- <div class="border-bottom"> -->
-                  <!-- <p class="text-secondary">Categories</p>                   -->
-                <!-- </div> -->
-                <!-- <ul class="gradient-bullet-list mt-4"> -->
-                  <!-- <li>Free</li> -->
-                  <!-- <li>Pro</li> -->
-                <!-- </ul> -->
-              <!-- </div> -->
-            <!-- </span> -->
-          <!-- </li> -->
+         
         </ul>
       </nav>
-      <!-- partial -->
+     
     
      <div class="main-panel">
         <div class="content-wrapper">
@@ -191,7 +163,7 @@
              <div class="row">
             <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
-                <div class="card-body style="width: 18rem;">
+                <div class="card-body" style=" background-color: rgba(70,70,70, 0.2);">
                   <h4 class="card-title">Amount Spent to Buy Different Securities</h4>
                    <canvas id="myChart" width="200" height="150""> </canvas>
                   
@@ -200,7 +172,7 @@
             </div>
             <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
-                <div class="card-body">
+                <div class="card-body" style=" background-color: rgba(70,70,70, 0.2);">
                   <h4 class="card-title">Amount Received From Selling DIfferent Securities</h4>
                  <canvas id="myChart1" width="200" height="150"></canvas>
                 </div>

@@ -74,14 +74,16 @@ public class SecurityOperationsImpl implements SecurityOperations {
 		// TODO Auto-generated method stub
 		Security sec = new Security();
 		String securityId1 = null;
-		String secName = "select * from Security where securityName=securityName";
+		System.out.println("GAGA"+securityName);
+		String secName = "select securityId from Security where securityName=?";
 		try(Connection con =MyConnection.openConnection();) {
-			PreparedStatement ps= con.prepareStatement(secName);
-			ResultSet set = ps.executeQuery();
-			while(set.next())
+			PreparedStatement ps5= con.prepareStatement(secName);
+			ps5.setString(1, securityName);
+			ResultSet set5 = ps5.executeQuery();
+			while(set5.next())
 			{
-				securityId1 = set.getString(1);
-				
+				securityId1 = set5.getString(1);
+				System.out.println(securityId1);
 				
 			}
 		} catch (SQLException e) {

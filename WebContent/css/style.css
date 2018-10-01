@@ -9197,27 +9197,38 @@ pre code {
 }
 
 .row .table{
+	margin-left: -40px;
 	height: auto;
 	width:100%;                      
 	color:  black;
-	background-color: #2E4D58;
-	/* border: 0px; */
+	background-color: rgba(70, 70, 100, 0.8);
+	/* border-collapse: separate;
+	 border: 0px;  */
+/* 	 border-radius: 6px; */
 }
  
 .row .table .tableHead{
 	/* display: block; */
 	/* float: left; */
 	vertical-align: middle;
-	padding: 
+	padding: 10px 0px;
+	background-color: #5BB832  ;
+	 opacity: 0.6; 
+	border: white solid 1px;
 }
 
+/* .row .table .tableHead .edit{
+	padding: 10px 0px;
+} */
+
 .row .table .input{
-	padding: 0;
+	padding: auto;;
 }
 
 .row .table .tableData{
 	boder: 0px; 
-	padding: 0 0;
+	padding: 10px 26px;
+	color: white;
 }
 
 .row .table .buttons{
@@ -9226,10 +9237,13 @@ pre code {
 	display: flex;
 	background: url('<i class="mdi mdi-content-save"></i>');
 	border-bottom: none;
+	border-left: none;
+	border-right: none;
 }
 
 .row .table .buttons .delete{
 	margin:3px;
+	color: black;
 }
 
 .row .table .buttons .delete:hover{
@@ -9237,17 +9251,19 @@ pre code {
 }
 
 .row .table .buttons .edit{
-	
 	background: none;
 	border: none;
-	color: #007bff;
+	color: black;
 }
-.row .table .tableHead .edit{
+ .row .table .tableHead .edit{
 	background: none;
 	border: none;
-	color: #007bff;
+	color: white;
 }
-
+.row .table .tableHead .edit:hover{
+	color: black;
+}
+ 
 .row .table .buttons .edit:hover{
 	color: white;
 }
@@ -9255,7 +9271,7 @@ pre code {
 .row .table .buttons .save{
 	background: none;
 	border: none;
-	color: #007bff;
+	color: black;
 }
 
 .row .table .buttons .save:hover{
@@ -9265,7 +9281,7 @@ pre code {
 .row .table .buttons .add{
 	background: none;
 	border: none;
-	color: #007bff;
+	color: black;
 }
 
 .row .table .buttons .add :hover{
@@ -9273,7 +9289,7 @@ pre code {
 }
 
 .row .table .addNew{
-	width: 100%;
+	width: auto;
 	
 }
 .row .popup {
@@ -10086,19 +10102,20 @@ pre code {
 .table td {
   padding: 0.9375rem;
   vertical-align: top;
-  border-top: 1px solid #ebedf2;
+/*   border-top: 1px solid #ebedf2; */
 }
 
 .table thead th {
+	background-color: #5BB832 ;
   vertical-align: bottom;
-  border-bottom: 2px solid #ebedf2;
+  /* border-bottom: 2px solid #ebedf2; */
 }
 
 .table tbody + tbody {
-  border-top: 2px solid #ebedf2;
+  /* border-top: 2px solid #ebedf2; */
 }
 
-.table .table {
+. .table {
   background-color: #fff;
 }
 
@@ -10107,25 +10124,37 @@ pre code {
   padding: 0.3rem;
 }
 
-.table-bordered {
+/* .table-bordered {
   border: 1px solid #ebedf2;
-}
+} */
 
-.table-bordered th,
+/* .table-bordered th,
 .table-bordered td {
   border: 1px solid #ebedf2;
 }
-
-.table-bordered thead th,
+ */
+/* .table-bordered thead th,
 .table-bordered thead td {
   border-bottom-width: 2px;
-}
+} */
 
 .table-borderless th,
 .table-borderless td,
 .table-borderless thead th,
 .table-borderless tbody + tbody {
   border: 0;
+}
+
+.table tr:nth-child(odd){
+	background-color: rgba(70, 70, 70, 0.5);
+}
+
+.table tr: hover{
+	background-color: rgba(50,50,50, 0.7);
+}
+
+.table tr:nth-child(even){
+	background-color: white;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
@@ -17567,10 +17596,10 @@ input:focus {
   content: "\f140";
 }
 
-.sidebar .nav .nav-item.active {
+/* .sidebar .nav .nav-item.active {
   background: #242424;
 }
-
+ */
 .sidebar .nav .nav-item.active > .nav-link .menu-title {
   color: #9CCB70;
   font-family: "ubuntu-medium", sans-serif;
@@ -18680,6 +18709,7 @@ h3,
 h4,
 .h4 {
   font-size: 1.13rem;
+  color: white;
 }
 
 h5,
@@ -18969,6 +18999,29 @@ code {
 
 .footer .container-fluid .pull-right{
 	float: right;
+}
+
+.clicks{
+	display: flex;
+	padding: auto;
+} 
+
+.clicks .random{
+	border: 0;
+	background: #5BB832;
+} 
+
+.clicks .random:hover{
+	background: white;
+}
+
+.clicks .default{
+	border: 0;
+	background: #5BB832;
+}
+
+.clicks .default:hover{
+	background: white;
 }
 
 .footer a {
@@ -21225,6 +21278,9 @@ dl li {
   border-bottom-width: 1px;
   font-family: "ubuntu-medium", sans-serif;
   font-weight: initial;
+  background:  #985EFF ;
+  opacity: 0.6;
+  border: white solid 1px;
 }
 
 .table thead th i {
@@ -21236,6 +21292,10 @@ dl li {
   vertical-align: middle;
   font-size: 0.875rem;
   line-height: 1;
+}
+
+.table td{
+	color: white;
 }
 
 .table th img,
